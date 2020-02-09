@@ -66,5 +66,15 @@ body {
 }
 
 #backwards {
-  
+  width: 130px;
+  text-decoration: none;
+}
+
+#backwards a {
+  color: white;
+  font-family: sans-serif;
+}
+
+.btn-primary {
+  font-family: monospace;
 }
