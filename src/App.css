@@ -80,3 +80,57 @@ body {
   font-family: monospace;
   font-size: 4.5rem;
 }
+
+@media only screen (min-width: 800) {
+
+  #js-calculator {
+    width: 60rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #title {
+    padding-bottom: 0.5em;
+    font-size: 3em;
+  }
+
+  #displayComplete {
+    display: block;
+    margin: auto;
+    width: 55rem;
+    background: black;
+    padding-right: 1.2rem;
+    text-align: right;
+    font-size: 4rem;
+  }
+
+  #displayFormula {
+    font-size: 4rem;
+  }
+
+  #numPad {
+    padding: 1.5em;
+    padding-top: 12em;
+    width: 40rem;
+  }
+
+  .btn {
+    width: 8rem;
+    height: 10rem;
+  }
+
+  .btn-primary {
+    font-size: 7rem;
+  }
+
+  #clear {
+    width: 16rem;
+  }
+
+  .btn-primary {
+    font-size: 7rem;
+  }
+}
