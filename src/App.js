@@ -8,7 +8,7 @@ const endOperator = /[x+/-]$/,
       maxDigits = 19,
       initialState = {
         displayInput: 0,
-        displayStore: ' ',
+        displayStore: '0',
         stateDecimal: false,
         firstValueZero: true,
         firstValue: true,
@@ -69,6 +69,10 @@ class CalcPad extends React.Component {
   }
 
   handleOperatorClick(e) {
+    if (this.state.displayStore=='0') {
+      console.log("Hello You");
+        this.state.displayStore='';
+    }
     if (this.state.stateOperator===false && this.state.stateEquals===false && this.state.firstValue===true) {
       this.setState({
         displayStore: this.state.displayStore + this.state.displayInput,
@@ -115,10 +119,8 @@ class CalcPad extends React.Component {
     if (endOperator.test(formula)) {
       formula=formula.slice(0, -1);
     }
-    console.log(formula);
     formula = formula.replace(/x/g, "*");
     let result = eval(formula);
-    console.log(result);
     this.setState({
       displayStore: result,
       displayInput: result,
@@ -156,7 +158,7 @@ class CalcPad extends React.Component {
           <button id="subtract" className="btn btn-warning" onClick={this.handleOperatorClick.bind(this)} value="-">-</button>
           <button id="multiply" className="btn btn-warning" onClick={this.handleOperatorClick.bind(this)} value="x">*</button>
           <button id="divide" className="btn btn-warning" onClick={this.handleOperatorClick.bind(this)} value="/">/</button>
-          <button id="equals" className="btn btn-warning" onClick={this.handleEqualsClick.bind(this)} value="=">=</button>
+          <button id="equals" className="btn btn-warning" onClick={this.state.decimal===true ? this.handleEqualsClick.bind(this) : ''} value="=">=</button>
           <button id="decimal" className="btn btn-warning" onClick={this.deciClick.bind(this)} value=".">.</button>
           <button id="clear" className="btn btn-warning" onClick={()=>this.clearClick()}>CLEAR</button>
         </div>
