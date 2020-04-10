@@ -17,6 +17,54 @@ const endOperator = /[x+/-]$/,
         formula: ''
       };
 
+//Number Array
+const numbers = [{
+  id: "zero",
+  value: "0"
+},{
+  id: "one",
+  value: "1"
+},{
+  id: "two",
+  value: "2"
+},{
+  id: "three",
+  value: "3"
+},{
+  id: "four",
+  value: "4"
+},{
+  id: "five",
+  value: "5"
+},{
+  id: "six",
+  value: "6"
+},{
+  id: "seven",
+  value: "7"
+},{
+  id: "eight",
+  value: "8"
+},{
+  id: "nine",
+  value: "9"
+}]
+
+//Operator Array
+const operators = [{
+  id: "add",
+  value: "+"
+},{
+  id: "subtract",
+  value: "-"
+},{
+  id: "multiply",
+  value: "*"
+},{
+  id: "divide",
+  value: "/"
+},]
+
 
 class CalcPad extends React.Component {
   constructor(props) {
@@ -136,6 +184,8 @@ class CalcPad extends React.Component {
   }
 
   render() {
+    const numberPad = numbers.map(item => <button id={item.id} className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value={item.value}>{item.value}</button>);
+    const operatorPad = operators.map(item => <button id={item.id} className="btn btn-warning" onClick={this.handleNumberClick.bind(this)} value={item.value}>{item.value}</button>);
     return (
       <div>
         <h1 id="title">JavaScript Calculator</h1>
@@ -144,20 +194,8 @@ class CalcPad extends React.Component {
             <p id="display">{this.state.displayInput}</p>
         </div>
         <div id="numPad">
-          <button id="zero" className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value="0">0</button>
-          <button id="one" className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value="1">1</button>
-          <button id="two" className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value="2">2</button>
-          <button id="three" className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value="3">3</button>
-          <button id="four" className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value="4">4</button>
-          <button id="five" className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value="5">5</button>
-          <button id="six" className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value="6">6</button>
-          <button id="seven" className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value="7">7</button>
-          <button id="eight" className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value="8">8</button>
-          <button id="nine" className="btn btn-primary" onClick={this.handleNumberClick.bind(this)} value="9">9</button>
-          <button id="add" className="btn btn-warning" onClick={this.handleOperatorClick.bind(this)} value="+">+</button>
-          <button id="subtract" className="btn btn-warning" onClick={this.handleOperatorClick.bind(this)} value="-">-</button>
-          <button id="multiply" className="btn btn-warning" onClick={this.handleOperatorClick.bind(this)} value="x">*</button>
-          <button id="divide" className="btn btn-warning" onClick={this.handleOperatorClick.bind(this)} value="/">/</button>
+          {numberPad}
+          {operatorPad}
           <button id="equals" className="btn btn-warning" onClick={(this.state.displayStore!="0" && this.state.stateDecimal===false) ? this.handleEqualsClick.bind(this) : ''} value="=">=</button>
           <button id="decimal" className="btn btn-warning" onClick={this.deciClick.bind(this)} value=".">.</button>
           <button id="clear" className="btn btn-warning" onClick={()=>this.clearClick()}>CLEAR</button>
