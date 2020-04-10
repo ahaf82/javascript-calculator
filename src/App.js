@@ -5,7 +5,7 @@ import './App.css';
 const endOperator = /[x+/-]$/,
       multiDivide = /[x/]/,
       plusMinus = /[+-]/,
-      maxDigits = 19,
+      maxDigits = 15,
       initialState = {
         displayInput: 0,
         displayStore: '0',
@@ -158,7 +158,7 @@ class CalcPad extends React.Component {
           <button id="subtract" className="btn btn-warning" onClick={this.handleOperatorClick.bind(this)} value="-">-</button>
           <button id="multiply" className="btn btn-warning" onClick={this.handleOperatorClick.bind(this)} value="x">*</button>
           <button id="divide" className="btn btn-warning" onClick={this.handleOperatorClick.bind(this)} value="/">/</button>
-          <button id="equals" className="btn btn-warning" onClick={this.state.decimal===true ? this.handleEqualsClick.bind(this) : ''} value="=">=</button>
+          <button id="equals" className="btn btn-warning" onClick={(this.state.displayStore!="0" && this.state.stateDecimal===false) ? this.handleEqualsClick.bind(this) : ''} value="=">=</button>
           <button id="decimal" className="btn btn-warning" onClick={this.deciClick.bind(this)} value=".">.</button>
           <button id="clear" className="btn btn-warning" onClick={()=>this.clearClick()}>CLEAR</button>
         </div>
