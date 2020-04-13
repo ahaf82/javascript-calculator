@@ -1,6 +1,6 @@
 {
   "short_name": "JavaScript Calculator",
-  "name": "JavaScript Calculator",
+  "name": "Create React App",
   "icons": [
     {
       "src": "javacalc-favicon.ico",
